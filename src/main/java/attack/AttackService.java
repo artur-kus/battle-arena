@@ -15,15 +15,15 @@ public class AttackService {
     }
 
 
-    public void chooseAttackAndCalculateChanceToHit(Warrior warrior1, Warrior warrior2) {
+    public void chooseAttackAndCalculateChanceToHit(Warrior turnWarrior, Warrior otherWarrior) {
         attackReader.getAttackFromUser().ifPresentOrElse(attackReader -> {
             int number = random.nextInt(100);
             if (number > attackReader.getChanceOnAttack()){
                 System.out.println("You miss, opponent tour.\n");
             } else if (number < attackReader.getChanceOnAttack()){
-                defineHp(warrior1, warrior2, attackReader);
+                defineHp(otherWarrior, turnWarrior, attackReader);
             }
-        }, () -> System.out.println(warrior1.getName() + ", was surrender.\n"));
+        }, () -> System.out.println(turnWarrior.getName() + ", was surrender.\n"));
     }
 
     public void defineHp(Warrior turnWarrior, Warrior otherWarrior, TypeOfAttack attack){

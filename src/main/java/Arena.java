@@ -36,9 +36,18 @@ public class Arena {
 //            if (attackReader.getAttackFromUser().isEmpty()) {
 //                System.out.println("Surrender");
 //                break;
-//            }
-            whenWarriorIsDeath(warrior1, warrior2);
         }
+        whenWarriorIsDeath(turnWarrior, otherWarrior);
+    }
+
+    private void turn(Warrior turnWarrior, Warrior otherWarrior) {
+        System.out.println("Turn: " + turnWarrior);
+        System.out.println("      " + otherWarrior);
+        attackService.chooseAttackAndCalculateChanceToHit(turnWarrior, otherWarrior);
+    }
+
+    private boolean checkGameOver(Warrior turnWarrior, Warrior otherWarrior) {
+        return turnWarrior.getHp() <= 0 || otherWarrior.getHp() <= 0;
     }
 
     public void whenWarriorIsDeath(Warrior turnWarrior, Warrior otherWarrior) {
