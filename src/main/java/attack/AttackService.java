@@ -26,11 +26,11 @@ public class AttackService {
         }, () -> System.out.println(warrior1.getName() + ", was surrender.\n"));
     }
 
-    public void defineHp(Warrior warrior1, Warrior warrior2, TypeOfAttack attack){
-        double damageWhenHit = warrior2.getDamage() * attack.getDamageMultiplier();
-        double postAttackDamage = warrior1.getHp() - (damageWhenHit);
-        warrior1.setHp(postAttackDamage);
-        System.out.println(warrior2.getName() + ", hit " + warrior1.getName() + " and deal him: " + damageWhenHit + " damage. " + warrior1.getName() + " have " +  warrior1.getHp() + " hp.\n");
+    public void defineHp(Warrior turnWarrior, Warrior otherWarrior, TypeOfAttack attack){
+        double damageWhenHit = otherWarrior.getDamage() * attack.getDamageMultiplier();
+        double postAttackDamage = turnWarrior.getHp() - (damageWhenHit);
+        turnWarrior.setHp(postAttackDamage);
+        System.out.println(otherWarrior.getName() + ", hit " + turnWarrior.getName() + " and deal him: " + damageWhenHit + " damage. " + turnWarrior.getName() + " have " +  turnWarrior.getHp() + " hp.\n");
     }
 
 

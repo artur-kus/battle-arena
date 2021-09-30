@@ -20,6 +20,8 @@ public class Warrior implements Serializable {
     private double damage;
     private boolean alive;
 
+    Warrior(){}
+
     public Warrior(String name, double hp, double damage, boolean alive) {
         this.name = name;
         this.hp = hp;
